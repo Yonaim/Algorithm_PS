@@ -12,11 +12,10 @@
 #define min(a,b)  (((a) < (b)) ? (a) : (b))
 
 const int MaxN = 100000;
+int N;
 
 int main()
 {
-	int N;
-
 	scanf("%d", &N);
 	printf("%d", f(N));
 }
