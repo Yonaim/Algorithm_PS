@@ -72,6 +72,12 @@ base case:
 #define max(a,b)  (((a) > (b)) ? (a) : (b))
 #define min(a,b)  (((a) < (b)) ? (a) : (b))
 
+/*
+
+f(n, m): n개의 파일이 남아있을 때 총 비용의 합
+
+*/
+
 int main()
 {
 	int N;
