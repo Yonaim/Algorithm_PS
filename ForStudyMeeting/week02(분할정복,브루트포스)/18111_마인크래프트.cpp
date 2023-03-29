@@ -1,8 +1,3 @@
-#include <stdio.h>
-#include <string.h>
-#include <stdbool.h>
-#include <limits.h>
-
 /*
 재귀 함수로 하면 될 것 같다.
 	종료 조건:
@@ -32,16 +27,15 @@ mean에서부터 1씩 값을 낮춰가며 시간을 구한다.
 근데 구한 해당 높이의 시간 값이 앞서 구한 시간보다 더 오래 걸린다면 더 이상 연산을 그만둔다.
 */
 
+#include <stdio.h>
+#include <string.h>
+#include <limits.h>
+
 const int MaxH = 500;
 const int MaxW = 500;
 int H, W, I;
 int arr[MaxH][MaxW];
 int land[MaxH][MaxW];
-
-/*
-음? 어차피 가능한 높이만 확인하니까 아이템 개수는 신경 안 써도될거같다.
-아이템 증감하는 부분은 빼자.
-*/
 
 int minecraft(int h)
 {
@@ -51,16 +45,10 @@ int minecraft(int h)
 	{
 		for (int j = 0; j < W; j++)
 		{
-			while (land[i][j] > h)
-			{
-				land[i][j]--;
-				time += 2;
-			}
-			while (land[i][j] < h)
-			{
-				land[i][j]++;
-				time += 1;
-			}
+			if (land[i][j] > h)
+				time += 2 * (land[i][j] - h);
+			else if (land[i][j] < h)
+				time += 1 * (h - land[i][j]);
 		}
 	}
 	return (time);
@@ -82,6 +70,7 @@ int main()
 		}
 	mean += I;
 	mean /= (H * W);
+
 	for (int h = mean; h >= 0; h--)
 	{
 		memcpy(land, arr, sizeof(land));

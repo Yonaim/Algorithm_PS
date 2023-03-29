@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <string.h>
 
@@ -49,5 +48,4 @@ int main()
 	}
 	memset(dp, -1, sizeof(dp));
 	printf("%d", maxSum(N, 1) + num[N][1]);
-	// printf("%d", num[1][3]);
 }
