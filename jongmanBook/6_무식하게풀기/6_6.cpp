@@ -22,6 +22,8 @@ base case: 모든 칸을 전부 채운 경우 -> 1
 #include <stdbool.h>
 #include <vector>
 
+using namespace std;
+
 // 주어진 한 칸을 덮을 수 있는 4가지 방법
 const int coverType[4][3][2] = {
 	{{0, 0}, {1, 0}, {0, -1}},
